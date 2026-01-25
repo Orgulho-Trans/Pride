@@ -19,7 +19,7 @@
 </div>
 
 > Projeto criado com carinho por **Alexia Melusine** 💕  
-> Visite o site completo: [Orgulho Trans](https://alexialuzdeferro.github.io/orgulho-trans/) 🏳️‍⚧️
+> Visite o site completo: [Orgulho Trans](https://orgulho-trans.github.io/Pride/) 🏳️‍⚧️
 
 ![Bandeira Trans vibrante](https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/BANDEIRA%20TRANS.webp)
 
@@ -57,3 +57,12 @@
 1. Clone o repositório  
    ```bash
    git clone https://github.com/alexialuzdeferro/orgulho-trans.git
+
+   Abra o arquivo index.html no navegador
+ou acesse online:
+👉 Orgulho Trans – Site Completo 👈
+
+Trans é vida. Trans é resistência. Trans é orgulho! 🔥🏳️‍⚧️
+Feito com muito amor 💕
+Alexia Melusine
+Instagram • Threads • TikTok
