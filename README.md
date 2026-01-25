@@ -63,3 +63,17 @@ Marsha P. Johnson • Sylvia Rivera • Laverne Cox • Erika Hilton • Laerte 
 1. Clone o repositório  
    ```bash
    git clone https://github.com/alexialuzdeferro/orgulho-trans.git
+
+   Abra o arquivo index.html no navegador
+ou
+Acesse direto online:
+👉 Orgulho Trans – Site Completo 👈
+
+Feito com amor 💕
+Projeto 100% dedicado à visibilidade e ao orgulho trans.
+Se você gostou, compartilhe! A visibilidade salva vidas 🏳️‍⚧️
+Alexia Melusine
+Instagram • Threads • TikTok
+Trans é vida. Trans é resistência. Trans é orgulho! 🔥🏳️‍⚧️
+
+
