@@ -1,23 +1,32 @@
-# Orgulho Trans 🏳️‍⚧️💖✨
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alexialuzdeferro/pombagira-revelada/refs/heads/main/Al%C3%AA%20(3).png" 
+       alt="Alexia Melusine" 
+       width="180" 
+       style="border-radius: 50%; 
+              border: 8px solid transparent; 
+              background: linear-gradient(to right, #5BCEFA, #F5A9B8, #FFFFFF, #F5A9B8, #5BCEFA) border-box; 
+              -webkit-background-clip: padding-box; 
+              background-clip: padding-box; 
+              padding: 4px; 
+              box-shadow: 0 8px 32px rgba(91, 206, 250, 0.6), 0 0 0 8px rgba(245, 169, 184, 0.4); 
+              margin: 20px 0;">
+  
+  <h1>Orgulho Trans 🏳️‍⚧️💖✨</h1>
+  
+  <p><strong>Celebrando a diversidade, a coragem e a beleza da comunidade transgênero!</strong></p>
+  
+  <p>Um espaço cheio de inspiração, história, apoio e muito orgulho 🌈💜</p>
+</div>
 
-**Celebre a diversidade, a coragem e a beleza da comunidade transgênero!**  
-Um espaço cheio de inspiração, história, apoio e muito orgulho 🌈
+> Projeto criado com carinho por **Alexia Melusine** 💕  
+> Visite o site completo: [Orgulho Trans](https://alexialuzdeferro.github.io/orgulho-trans/) 🏳️‍⚧️
 
-> Projeto criado com carinho por **Alexia Melusine** 💜  
-> Visite o site completo: [https://alexialuzdeferro.github.io/orgulho-trans/](https://alexialuzdeferro.github.io/orgulho-trans/)  
-> (ou onde quer que você tenha hospedado o HTML)
-
-<grok-card data-id="5d51d7" data-type="image_card" data-plain-type="render_searched_image"  data-arg-size="LARGE" ></grok-card>
-
-
-
-<grok-card data-id="9c1c08" data-type="image_card" data-plain-type="render_searched_image"  data-arg-size="LARGE" ></grok-card>
-
+![Bandeira Trans vibrante](https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/BANDEIRA%20TRANS.webp)
 
 ## ✨ Destaques do Projeto
 
 - 🌟 Pessoas trans inspiradoras de ontem e hoje  
-- 💜 Organizações e redes de apoio (inclusive brasileiras!)  
+- 💜 Organizações e redes de apoio (muitas brasileiras!)  
 - 💼 Emprego, saúde e processo transexualizador no SUS  
 - 📜 Linha do tempo da luta trans  
 - 🌍 Marcos históricos pelo mundo  
@@ -26,54 +35,25 @@ Um espaço cheio de inspiração, história, apoio e muito orgulho 🌈
 - 📹 Documentários poderosos  
 - 📸 Galeria cheia de orgulho!
 
-<grok-card data-id="2bf488" data-type="image_card" data-plain-type="render_searched_image"  data-arg-size="LARGE" ></grok-card>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/PARADA%20GAY.webp" alt="Parada do Orgulho" width="600" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(91, 206, 250, 0.5);">
+</div>
 
+## 🏳️‍⚧️ As Cores do Orgulho
 
-
-<grok-card data-id="064bd2" data-type="image_card" data-plain-type="render_searched_image"  data-arg-size="LARGE" ></grok-card>
-
-
-## 🏳️‍⚧️ Bandeira Trans – Orgulho em Cores!
-
-A bandeira trans representa:
-
-- **Azul claro** → bebês designados meninos  
-- **Rosa** → bebês designados meninas  
-- **Branco** → pessoas não-binárias, intersexo, transição ou gênero fluido
-
-<grok-card data-id="b67247" data-type="image_card" data-plain-type="render_searched_image"  data-arg-size="LARGE" ></grok-card>
-
+- **Azul claro** → tradição e serenidade  
+- **Rosa** → feminilidade e carinho  
+- **Branco** → neutralidade, inclusão e pessoas não-binárias/trans em transição
 
 ## Datas que Importam 📅
 
-- **31 de Março** → Dia Internacional da Visibilidade Trans  
-- **29 de Janeiro** → Dia Nacional da Visibilidade Trans (Brasil)  
-- **20 de Novembro** → Dia da Memória Trans (TDOR)  
-- **28 de Junho** → Dia do Orgulho LGBTQIA+
-
-<grok-card data-id="635055" data-type="image_card" data-plain-type="render_searched_image"  data-arg-size="LARGE" ></grok-card>
-
-
-## Pessoas Incríveis que Inspiram 🌟
-
-Marsha P. Johnson • Sylvia Rivera • Laverne Cox • Erika Hilton • Laerte Coutinho • Roberta Close • Elliot Page • e muitas mais!
+- **31 de Março** → Dia Internacional da Visibilidade Trans 🌍  
+- **29 de Janeiro** → Dia Nacional da Visibilidade Trans (Brasil) 🇧🇷  
+- **20 de Novembro** → Dia da Memória Trans (TDOR) 🕯️  
+- **28 de Junho** → Dia do Orgulho LGBTQIA+ 🏳️‍🌈
 
 ## Como Acessar o Projeto Completo
 
 1. Clone o repositório  
    ```bash
    git clone https://github.com/alexialuzdeferro/orgulho-trans.git
-
-   Abra o arquivo index.html no navegador
-ou
-Acesse direto online:
-👉 Orgulho Trans – Site Completo 👈
-
-Feito com amor 💕
-Projeto 100% dedicado à visibilidade e ao orgulho trans.
-Se você gostou, compartilhe! A visibilidade salva vidas 🏳️‍⚧️
-Alexia Melusine
-Instagram • Threads • TikTok
-Trans é vida. Trans é resistência. Trans é orgulho! 🔥🏳️‍⚧️
-
-
