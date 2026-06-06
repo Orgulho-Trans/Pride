@@ -570,4 +570,10 @@ body {
         height: 240px;
         margin-bottom: 1.5rem;
     }
+
+    /* Keep all images lit/colored by default on mobile device screens */
+    .reveal-img {
+        filter: brightness(1) contrast(1) grayscale(0) !important;
+        transform: none !important;
+    }
 }
