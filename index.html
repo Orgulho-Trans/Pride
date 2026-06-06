@@ -4,637 +4,1035 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orgulho Trans 🏳️‍⚧️</title>
+    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .trans-gradient {
-            background: linear-gradient(180deg, #5BCEFA 0%, #5BCEFA 20%, #F5A9B8 20%, #F5A9B8 40%, #FFFFFF 40%, #FFFFFF 60%, #F5A9B8 60%, #F5A9B8 80%, #5BCEFA 80%, #5BCEFA 100%);
-        }
-        
-        .trans-gradient-horizontal {
-            background: linear-gradient(90deg, #5BCEFA, #F5A9B8, #FFFFFF, #F5A9B8, #5BCEFA);
-        }
-        
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-        }
-        
-        .accordion-content.open {
-            max-height: 3000px;
-            transition: max-height 0.6s ease-in;
-        }
-        
-        .accordion-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .accordion-btn.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-        
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .person-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            object-position: top;
-        }
-        
-        @media (min-width: 768px) {
-            .person-img {
-                height: 250px;
-            }
-        }
-        
-        .link-btn {
-            min-height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero-img {
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(#5BCEFA, #F5A9B8);
-            border-radius: 10px;
-        }
-    </style>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
-    
-    <!-- Header -->
-    <header class="relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
+<body class="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 min-h-screen text-slate-100 selection:bg-[#F5A9B8]/30 selection:text-white">
+
+    <!-- Glitter Canvas Overlay for Festive Sparkle Click Effect -->
+    <canvas id="glitterCanvas"></canvas>
+
+    <!-- Viewport-height Hero Cover with Color Reveal Effect -->
+    <header class="hero-cover">
+        <!-- Background Image Container -->
+        <div class="absolute inset-0 z-0">
             <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/BANDEIRA%20TRANS.webp" 
-                 alt="Bandeira Trans" class="w-full h-full object-cover">
+                 alt="Bandeira do Orgulho Trans" class="main-cover-img">
+            <!-- Glass Overlay -->
+            <div class="absolute inset-0 hover-overlay pointer-events-none"></div>
         </div>
-        <div class="relative z-10 container mx-auto px-4 py-8 md:py-16 text-center">
-            <div class="mb-6">
-                <span class="text-6xl md:text-8xl">🏳️‍⚧️</span>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4 flex flex-col items-center gap-6">
+            <div class="animate-float">
+                <span class="text-6xl md:text-8xl filter drop-shadow-[0_0_20px_rgba(245,169,184,0.5)]">🏳️‍⚧️</span>
             </div>
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+            
+            <h1 class="text-4xl md:text-7xl lg:text-8xl font-black text-white drop-shadow-lg">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#5BCEFA] via-[#F5A9B8] to-white">
                     Orgulho Trans
                 </span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-6">
-                Celebrando a diversidade, a coragem e a beleza da comunidade transgênero
+            
+            <p class="hero-subtitle text-lg md:text-2xl text-gray-200 max-w-2xl font-light leading-relaxed">
+                Celebrando a diversidade, a coragem e a beleza da comunidade transgênero, não-binária e crossdresser.
             </p>
-            <div class="trans-gradient-horizontal h-1 w-32 mx-auto rounded-full"></div>
+            
+            <div class="trans-gradient-horizontal h-1.5 w-40 rounded-full shadow-lg shadow-[#5BCEFA]/30"></div>
+            
+            <!-- Floating Stats on Landing (Compressed on Mobile) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 w-full max-w-3xl px-4 mobile-hidden-decor">
+                <div class="glass-panel rounded-2xl p-4">
+                    <div class="text-2xl font-bold text-[#5BCEFA]">1.5M+</div>
+                    <div class="text-xs text-gray-400">Pessoas Trans no Brasil</div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4">
+                    <div class="text-2xl font-bold text-[#F5A9B8]">1966</div>
+                    <div class="text-xs text-gray-400">Revolta de Compton</div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4">
+                    <div class="text-2xl font-bold text-white">29/01</div>
+                    <div class="text-xs text-gray-400">Visibilidade Trans</div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4">
+                    <div class="text-2xl font-bold text-[#F5A9B8]">1999</div>
+                    <div class="text-xs text-gray-400">Bandeira Trans Criada</div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="mt-8 text-white/50 text-sm flex flex-col items-center gap-2">
+                <span class="text-xs tracking-widest uppercase">Explore o site</span>
+                <i class="fas fa-chevron-down text-lg text-[#F5A9B8] animate-bounce"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Main Content Container -->
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
         
-        <!-- Featured Image -->
-        <section class="mb-8 fade-in">
-            <div class="rounded-2xl overflow-hidden shadow-2xl">
+        <!-- Featured Image Section (Color Reveal Hover Effect) -->
+        <section class="mb-12 fade-in">
+            <div class="card-hover-wrapper rounded-3xl overflow-hidden shadow-2xl bg-black/40">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/PARADA%20GAY.webp" 
-                     alt="Parada do Orgulho LGBT" class="w-full h-48 md:h-64 object-cover">
+                     alt="Parada do Orgulho LGBT" class="reveal-img w-full h-56 md:h-80 object-cover">
             </div>
         </section>
 
-        <!-- Accordion Sections -->
-        <div class="space-y-4">
+        <!-- SECTION: Criadora do Site (Alexia Melusine) Standalone Highlight -->
+        <section class="mb-12 fade-in creator-standalone rounded-3xl p-6 md:p-8 relative overflow-hidden">
+            <!-- Decorative gradient backgrounds -->
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-[#5BCEFA]/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-[#F5A9B8]/15 rounded-full blur-3xl pointer-events-none"></div>
             
-            <!-- Section 1: Pessoas Trans -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
-                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left active" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">✨</span>
+            <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                <!-- 3D Photo Container -->
+                <div class="creator-3d-container flex-shrink-0">
+                    <div id="creatorCardWrapper" class="creator-photo-wrapper">
+                        <!-- Front of Card: Photo -->
+                        <div class="creator-photo-front">
+                            <img src="https://rbygxkbewzknvjjhxdvw.supabase.co/storage/v1/object/public/fotos-horiz/Xcard%20(6).png" 
+                                 alt="Alexia Melusine" class="w-full h-full object-cover object-center">
+                        </div>
+                        <!-- Back of Card: Pride Details -->
+                        <div class="creator-photo-back">
+                            <span class="text-3xl mb-2">🏳️‍⚧️</span>
+                            <h4 class="text-white font-bold text-sm tracking-wide">Alexia Melusine</h4>
+                            <p class="text-[#5BCEFA] text-[10px] uppercase font-semibold tracking-wider mt-1">Criadora & Ativista</p>
+                            <p class="text-gray-400 text-[9px] mt-2 leading-relaxed px-1">Clique para girar e espalhar orgulho!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile details -->
+                <div class="flex-grow text-center md:text-left">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-3 justify-center md:justify-start">
+                        <span class="px-3 py-1 bg-gradient-to-r from-[#5BCEFA] to-[#F5A9B8] text-slate-950 rounded-full font-bold text-xs w-fit mx-auto md:mx-0 shadow-sm shadow-[#5BCEFA]/20">
+                            ✨ Criadora do Site
+                        </span>
+                        <span class="text-xs text-[#F5A9B8] font-medium tracking-wide">Libra • Brasil • Presente</span>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
+                        Alexia Melusine
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-5 max-w-xl">
+                        Criadora de conteúdo focada na militância, visibilidade trans e espiritualidade. Alexia compartilha sua jornada individual 
+                        e atua ativamente na desmistificação e no ensino sobre arquétipos e entidades da Umbanda (Pombagiras), promovendo o empoderamento.
+                    </p>
+                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#5BCEFA]/30 transition-colors">Ativismo</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#F5A9B8]/30 transition-colors">Espiritualidade</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#9C59D1]/30 transition-colors">Cultura</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordion Main Wrapper -->
+        <div class="space-y-6 fade-in">
+            
+            <!-- SECTION 1: As Bandeiras do Orgulho -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(91,206,250,0.5)]">🏳️‍⚧️</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-white">Pessoas Trans Inspiradoras</h2>
-                            <p class="text-sm text-gray-300">Histórias de coragem e visibilidade</p>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">As Bandeiras do Orgulho</h2>
+                            <p class="text-xs md:text-sm text-gray-400">As cores e os significados dos nossos símbolos</p>
                         </div>
                     </div>
                     <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
-                <div class="accordion-content open px-4 pb-6">
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-3 gap-6 pt-4">
+                        <!-- Trans Flag -->
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-5 overflow-hidden flex flex-col gap-4">
+                            <div class="h-28 rounded-xl overflow-hidden shadow-inner">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/BANDEIRA%20TRANS.webp" 
+                                     alt="Bandeira Trans" class="reveal-img w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-[#5BCEFA] mb-1">Bandeira Trans</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed">
+                                    Criada em 1999 por Monica Helms. O azul representa homens trans, o rosa representa mulheres trans, 
+                                    e o branco representa pessoas não-binárias, intersexo ou em transição.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Non-Binary Flag -->
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-5 overflow-hidden flex flex-col gap-4">
+                            <!-- Non-binary gradient -->
+                            <div class="h-28 rounded-xl overflow-hidden shadow-inner bg-gradient-to-b from-[#FCF434] via-[#FFFFFF] via-[#9C59D1] to-[#2D2D2D] reveal-img">
+                                <div class="w-full h-full opacity-60 bg-gradient-to-r from-transparent to-black/30"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-[#FCF434] mb-1">Bandeira Não-Binária</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed">
+                                    Criada em 2014 por Kye Rowan. Amarelo para gêneros fora do binário, branco para múltiplos gêneros, 
+                                    roxo para a mistura de masculino/feminino, e preto para pessoas agênero.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Pride Flag -->
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-5 overflow-hidden flex flex-col gap-4">
+                            <!-- Pride rainbow gradient -->
+                            <div class="h-28 rounded-xl overflow-hidden shadow-inner bg-gradient-to-r from-[#E40303] via-[#FF8C00] via-[#FFED00] via-[#008026] via-[#24408E] to-[#732982] reveal-img">
+                                <div class="w-full h-full opacity-60 bg-gradient-to-r from-transparent to-black/30"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-[#F5A9B8] mb-1">Bandeira LGBTQIA+</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed">
+                                    Criada por Gilbert Baker em 1978. Cada cor representa: vida (vermelho), cura (laranja), 
+                                    sol (amarelo), natureza (verde), harmonia (azul) e espírito (violeta).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Nossa História -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(245,169,184,0.5)]">📖</span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Nossa História</h2>
+                            <p class="text-xs md:text-sm text-gray-400">A trajetória e evolução das nossas lutas</p>
+                        </div>
+                    </div>
+                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-2 gap-6 pt-4">
+                        <div class="space-y-4">
+                            <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                                <h3 class="font-bold text-base text-[#5BCEFA] mb-2">Instituto de Ciências Sexuais de Berlim (1919)</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed">
+                                    Magnus Hirschfeld fundou o primeiro instituto dedicado ao estudo da sexualidade e identidade de gênero, 
+                                    realizando os primeiros acompanhamentos e cirurgias de afirmação de gênero. Foi destruído pelos nazistas em 1933.
+                                </p>
+                            </div>
+                            <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                                <h3 class="font-bold text-base text-[#F5A9B8] mb-2">Revolta de Compton's Cafeteria (1966)</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed">
+                                    Em São Francisco, mulheres trans e drag queens revoltaram-se contra a violência e a repressão policial sistemáticas, 
+                                    três anos antes de Stonewall. Um marco pioneiro na luta pelos direitos civis trans.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                                <h3 class="font-bold text-base text-white mb-2">Revolta de Stonewall (1969)</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed">
+                                    Marsha P. Johnson e Sylvia Rivera, mulheres trans de cor, foram protagonistas da revolta no bar Stonewall Inn, 
+                                    em Nova York, que deu início ao movimento moderno de libertação LGBTQIA+ global.
+                                </p>
+                            </div>
+                            <div class="bg-white/5 rounded-2xl p-5 border border-white/5">
+                                <h3 class="font-bold text-base text-[#FCF434] mb-2">Movimento no Brasil</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed">
+                                    Desde os espetáculos artísticos nas décadas de 60/70, passando por ícones como Roberta Close nos anos 80, 
+                                    a comunidade trans brasileira luta bravamente por direitos básicos em um dos países mais hostis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Pessoas Trans Inspiradoras -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left active" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">✨</span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Pessoas Trans Inspiradoras</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Vozes históricas e contemporâneas de visibilidade</p>
+                        </div>
+                    </div>
+                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content open px-6 pb-6">
+                    
+                    <!-- Figures Grid -->
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         
                         <!-- Marsha P. Johnson -->
-                        <a href="https://pt.wikipedia.org/wiki/Marsha_P._Johnson" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Marsha-P-Johnson.jpg" 
-                                 alt="Marsha P. Johnson" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Marsha_P._Johnson" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Marsha-P-Johnson.jpg" 
+                                     alt="Marsha P. Johnson" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Marsha P. Johnson</h3>
-                                <p class="text-xs text-[#F5A9B8]">Ativista</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Marsha P. Johnson</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Ativista (1945-1992)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Sylvia Rivera -->
-                        <a href="https://pt.wikipedia.org/wiki/Sylvia_Rivera" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Sylvia%20Rivera.png" 
-                                 alt="Sylvia Rivera" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Sylvia_Rivera" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Sylvia%20Rivera.png" 
+                                     alt="Sylvia Rivera" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Sylvia Rivera</h3>
-                                <p class="text-xs text-[#F5A9B8]">Ativista</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Sylvia Rivera</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Ativista (1951-2002)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Christine Jorgensen -->
-                        <a href="https://pt.wikipedia.org/wiki/Christine_Jorgensen" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Christine-Jorgensen-.webp" 
-                                 alt="Christine Jorgensen" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Christine_Jorgensen" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Christine-Jorgensen-.webp" 
+                                     alt="Christine Jorgensen" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Christine Jorgensen</h3>
-                                <p class="text-xs text-[#F5A9B8]">Pioneira</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Christine Jorgensen</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Pioneira (1926-1989)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Lili Elbe -->
-                        <a href="https://pt.wikipedia.org/wiki/Lili_Elbe" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Lili-in-Paris-1024x1024-1.jpg" 
-                                 alt="Lili Elbe" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Lili_Elbe" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Lili-in-Paris-1024x1024-1.jpg" 
+                                     alt="Lili Elbe" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Lili Elbe</h3>
-                                <p class="text-xs text-[#F5A9B8]">Artista Pioneira</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Lili Elbe</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Artista (1882-1931)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Laverne Cox -->
-                        <a href="https://pt.wikipedia.org/wiki/Laverne_Cox" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Laverne_Cox).jpg" 
-                                 alt="Laverne Cox" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Laverne_Cox" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Laverne_Cox).jpg" 
+                                     alt="Laverne Cox" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Laverne Cox</h3>
-                                <p class="text-xs text-[#F5A9B8]">Atriz</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Laverne Cox</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Atriz (1972-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Janet Mock -->
-                        <a href="https://pt.wikipedia.org/wiki/Janet_Mock" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Janet_Mock_Head_Shot.png" 
-                                 alt="Janet Mock" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Janet_Mock" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Janet_Mock_Head_Shot.png" 
+                                     alt="Janet Mock" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Janet Mock</h3>
-                                <p class="text-xs text-[#F5A9B8]">Escritora</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Janet Mock</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Escritora (1983-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Elliot Page -->
-                        <a href="https://pt.wikipedia.org/wiki/Elliot_Page" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Elliot_Page_2021.png" 
-                                 alt="Elliot Page" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Elliot_Page" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Elliot_Page_2021.png" 
+                                     alt="Elliot Page" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Elliot Page</h3>
-                                <p class="text-xs text-[#F5A9B8]">Ator</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Elliot Page</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Ator (1987-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Caitlyn Jenner -->
-                        <a href="https://pt.wikipedia.org/wiki/Caitlyn_Jenner" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Caitlyn_Jenner_2017.jpg" 
-                                 alt="Caitlyn Jenner" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Caitlyn_Jenner" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Caitlyn_Jenner_2017.jpg" 
+                                     alt="Caitlyn Jenner" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Caitlyn Jenner</h3>
-                                <p class="text-xs text-[#F5A9B8]">Ex-atleta</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Caitlyn Jenner</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Atleta (1949-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Erika Hilton -->
-                        <a href="https://pt.wikipedia.org/wiki/Erika_Hilton" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Erika-Hilton.webp" 
-                                 alt="Erika Hilton" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Erika_Hilton" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Erika-Hilton.webp" 
+                                     alt="Erika Hilton" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Erika Hilton</h3>
-                                <p class="text-xs text-[#F5A9B8]">Política 🇧🇷</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Erika Hilton</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Deputada 🇧🇷 (1992-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Laerte Coutinho -->
-                        <a href="https://pt.wikipedia.org/wiki/Laerte_Coutinho" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Laerte%20Coutinho.jpg" 
-                                 alt="Laerte Coutinho" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Laerte_Coutinho" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Laerte%20Coutinho.jpg" 
+                                     alt="Laerte Coutinho" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Laerte Coutinho</h3>
-                                <p class="text-xs text-[#F5A9B8]">Cartunista 🇧🇷</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Laerte Coutinho</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Cartunista 🇧🇷 (1951-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Roberta Close -->
-                        <a href="https://pt.wikipedia.org/wiki/Roberta_Close" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/ROBERTA%20CLOSE%20.jpg" 
-                                 alt="Roberta Close" class="person-img">
+                        <a href="https://pt.wikipedia.org/wiki/Roberta_Close" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/ROBERTA%20CLOSE%20.jpg" 
+                                     alt="Roberta Close" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Roberta Close</h3>
-                                <p class="text-xs text-[#F5A9B8]">Modelo 🇧🇷</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Roberta Close</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Modelo 🇧🇷 (1964-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                         <!-- Buzz Bissinger -->
-                        <a href="https://en.wikipedia.org/wiki/Buzz_Bissinger" target="_blank" class="card-hover bg-white/10 rounded-xl overflow-hidden block">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/2023_Buzz_Bissinger_(cropped).jpg" 
-                                 alt="Buzz Bissinger" class="person-img">
+                        <a href="https://en.wikipedia.org/wiki/Buzz_Bissinger" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/2023_Buzz_Bissinger_(cropped).jpg" 
+                                     alt="Buzz Bissinger" class="reveal-img person-img">
+                            </div>
                             <div class="p-3 text-center">
-                                <h3 class="font-semibold text-white text-sm">Buzz Bissinger</h3>
-                                <p class="text-xs text-[#F5A9B8]">Jornalista</p>
-                                <span class="text-[10px] text-[#5BCEFA] mt-1 inline-block">📖 Wikipedia</span>
+                                <h4 class="font-bold text-white text-xs truncate">Buzz Bissinger</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Jornalista (1954-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
+                            </div>
+                        </a>
+
+                        <!-- Maitê Schneider -->
+                        <a href="https://pt.wikipedia.org/wiki/Mait%C3%AA_Schneider" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Maite%CC%82-Shneider-e1648432660953.webp" 
+                                     alt="Maitê Schneider" class="reveal-img person-img">
+                            </div>
+                            <div class="p-3 text-center">
+                                <h4 class="font-bold text-white text-xs truncate">Maitê Schneider</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Ativista 🇧🇷 (1991-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
+                            </div>
+                        </a>
+
+                        <!-- Pabllo Vittar -->
+                        <a href="https://pt.wikipedia.org/wiki/Pabllo_Vittar" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Pabllo_Vittar_during_an_interview_in_April_2018_01.png" 
+                                     alt="Pabllo Vittar" class="reveal-img person-img">
+                            </div>
+                            <div class="p-3 text-center">
+                                <h4 class="font-bold text-white text-xs truncate">Pabllo Vittar</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Cantora 🇧🇷 (1993-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
+                            </div>
+                        </a>
+
+                        <!-- Léo Áquilla -->
+                        <a href="https://pt.wikipedia.org/wiki/Leo_%C3%81quilla" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Leo_Aquilla.jpg" 
+                                     alt="Léo Áquilla" class="reveal-img person-img">
+                            </div>
+                            <div class="p-3 text-center">
+                                <h4 class="font-bold text-white text-xs truncate">Léo Áquilla</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Jornalista 🇧🇷 (1970-Pres.)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
+                            </div>
+                        </a>
+
+                        <!-- Rogéria -->
+                        <a href="https://pt.wikipedia.org/wiki/Rog%C3%A9ria" target="_blank" class="card-hover-wrapper bg-white/5 rounded-2xl overflow-hidden block">
+                            <div class="h-44 overflow-hidden bg-black/20">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/26_Pr%C3%AAmio_da_M%C3%BAsica_Brasileira_%2818523218108%29.jpg" 
+                                     alt="Rogéria" class="reveal-img person-img">
+                            </div>
+                            <div class="p-3 text-center">
+                                <h4 class="font-bold text-white text-xs truncate">Rogéria</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">Atriz 🇧🇷 (1943-2017)</p>
+                                <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
                         
                     </div>
                 </div>
             </div>
-            
-            <!-- Section 2: Organizações e Apoio -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
+
+            <!-- SECTION 4: Linha do Tempo -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
                 <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">💜</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-white">Organizações de Apoio</h2>
-                            <p class="text-sm text-gray-300">Recursos e redes de suporte</p>
-                        </div>
-                    </div>
-                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content px-4 pb-6">
-                    <div class="grid gap-3">
-                        
-                        <a href="https://www.facebook.com/MaespelaDiversidade/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">👩‍👧‍👦</span>
-                            <span>Mães pela Diversidade</span>
-                        </a>
-                        
-                        <a href="https://allout.org/pt/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">🌍</span>
-                            <span>All Out</span>
-                        </a>
-                        
-                        <a href="https://todxs.org/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">🏳️‍🌈</span>
-                            <span>TODXS</span>
-                        </a>
-                        
-                        <a href="https://www.grupodignidade.org.br/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">💪</span>
-                            <span>Grupo Dignidade</span>
-                        </a>
-                        
-                        <a href="https://esou.org/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">🤝</span>
-                            <span>ESOU</span>
-                        </a>
-                        
-                        <a href="https://www.casadamaite.com/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">🏠</span>
-                            <span>Casa da Maite</span>
-                        </a>
-                        
-                        <a href="https://www.instagram.com/casaflorescer1/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">🌸</span>
-                            <span>Casa Florescer</span>
-                        </a>
-                        
-                        <a href="https://www.instagram.com/maesdaresistencia/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">✊</span>
-                            <span>Mães da Resistência</span>
-                        </a>
-                        
-                        <a href="https://www.somosdiversidade.com.br/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 hover:from-[#5BCEFA]/50 hover:to-[#F5A9B8]/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">🌈</span>
-                            <span>Somos Diversidade</span>
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Section 3: Emprego e Saúde -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
-                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">💼</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-white">Emprego & Saúde</h2>
-                            <p class="text-sm text-gray-300">Oportunidades e serviços</p>
-                        </div>
-                    </div>
-                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content px-4 pb-6">
-                    <div class="grid gap-3">
-                        
-                        <a href="https://www.transempregos.com.br/" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-green-500/30 to-emerald-500/30 hover:from-green-500/50 hover:to-emerald-500/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">💻</span>
-                            <div>
-                                <span class="block">TransEmpregos</span>
-                                <span class="text-xs text-gray-300">Vagas de emprego para pessoas trans</span>
-                            </div>
-                        </a>
-                        
-                        <a href="https://www.gov.br/pt-br/servicos/habilitar-se-para-realizar-processo-transexualizador" target="_blank" 
-                           class="link-btn bg-gradient-to-r from-blue-500/30 to-cyan-500/30 hover:from-blue-500/50 hover:to-cyan-500/50 rounded-xl px-5 py-4 text-white font-medium transition-all flex items-center gap-3">
-                            <span class="text-2xl">🏥</span>
-                            <div>
-                                <span class="block">Processo Transexualizador</span>
-                                <span class="text-xs text-gray-300">Informações do Governo Federal (SUS)</span>
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Section 4: Linha do Tempo -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
-                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">📜</span>
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(156,89,209,0.5)]">📜</span>
                         <div>
                             <h2 class="text-xl md:text-2xl font-bold text-white">Linha do Tempo</h2>
-                            <p class="text-sm text-gray-300">História do movimento trans</p>
+                            <p class="text-xs md:text-sm text-gray-400">Histórico cronológico de marcos do movimento trans</p>
                         </div>
                     </div>
                     <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
-                <div class="accordion-content px-4 pb-6">
-                    <div class="relative">
-                        <!-- Timeline line -->
-                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#5BCEFA] via-[#F5A9B8] to-[#5BCEFA]"></div>
+                <div class="accordion-content px-6 pb-6">
+                    <div class="relative pt-4">
+                        <!-- Vertical Timeline Line -->
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 timeline-line"></div>
                         
-                        <div class="space-y-6 ml-10">
+                        <div class="space-y-6">
                             <!-- 1919 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#5BCEFA] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#5BCEFA] font-bold text-lg">1919</span>
-                                    <h4 class="text-white font-semibold mt-1">Instituto de Ciência Sexual</h4>
-                                    <p class="text-gray-300 text-sm">Magnus Hirschfeld funda o instituto em Berlim, pioneiro nos estudos de gênero e sexualidade.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#5BCEFA] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#5BCEFA] font-bold text-base">1919</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">Instituto de Ciência Sexual</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Magnus Hirschfeld funda o instituto em Berlim, pioneiro mundial nos estudos científicos de gênero e sexualidade.</p>
                                 </div>
                             </div>
                             
                             <!-- 1930 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#F5A9B8] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#F5A9B8] font-bold text-lg">1930</span>
-                                    <h4 class="text-white font-semibold mt-1">Primeira Cirurgia de Redesignação</h4>
-                                    <p class="text-gray-300 text-sm">Lili Elbe se torna uma das primeiras pessoas a realizar cirurgia de afirmação de gênero.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#F5A9B8] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#F5A9B8] font-bold text-base">1930</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">Primeira Cirurgia de Redesignação</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Lili Elbe se torna uma das primeiras pessoas trans a realizar cirurgia de afirmação de gênero.</p>
                                 </div>
                             </div>
                             
                             <!-- 1952 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-white rounded-full border-2 border-[#5BCEFA]"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-white font-bold text-lg">1952</span>
-                                    <h4 class="text-white font-semibold mt-1">Christine Jorgensen</h4>
-                                    <p class="text-gray-300 text-sm">Ex-soldado americana se torna a primeira pessoa trans a ganhar visibilidade mundial na mídia.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#5BCEFA]"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-white font-bold text-base">1952</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">Christine Jorgensen</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Ex-soldado americana ganha grande destaque mundial e visibilidade midiática ao transicionar.</p>
                                 </div>
                             </div>
                             
                             <!-- 1966 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#5BCEFA] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#5BCEFA] font-bold text-lg">1966</span>
-                                    <h4 class="text-white font-semibold mt-1">Revolta de Compton's Cafeteria</h4>
-                                    <p class="text-gray-300 text-sm">Mulheres trans e drag queens resistem à violência policial em São Francisco.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#5BCEFA] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#5BCEFA] font-bold text-base">1966</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">Revolta de Compton's Cafeteria</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Mulheres transgêneras e drag queens resistem bravamente à prisão arbitrária e violência policial em São Francisco.</p>
                                 </div>
                             </div>
                             
                             <!-- 1969 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#F5A9B8] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#F5A9B8] font-bold text-lg">1969</span>
-                                    <h4 class="text-white font-semibold mt-1">🔥 Revolta de Stonewall</h4>
-                                    <p class="text-gray-300 text-sm">Marsha P. Johnson e Sylvia Rivera lideram a resistência em Nova York, marco do movimento LGBTQIA+.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#F5A9B8] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#F5A9B8] font-bold text-base">1969</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">🔥 Revolta de Stonewall</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Marsha P. Johnson e Sylvia Rivera lideram o protesto em Nova York, marco de fundação do orgulho LGBTQIA+.</p>
                                 </div>
                             </div>
                             
                             <!-- 1970 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-white rounded-full border-2 border-[#F5A9B8]"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-white font-bold text-lg">1970</span>
-                                    <h4 class="text-white font-semibold mt-1">STAR é fundada</h4>
-                                    <p class="text-gray-300 text-sm">Marsha e Sylvia criam a Street Transvestite Action Revolutionaries para apoiar jovens trans.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#F5A9B8]"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-white font-bold text-base">1970</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">STAR é fundada</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Marsha e Sylvia fundam a Street Transvestite Action Revolutionaries para acolher jovens trans marginalizados.</p>
                                 </div>
                             </div>
                             
                             <!-- 1999 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#5BCEFA] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#5BCEFA] font-bold text-lg">1999</span>
-                                    <h4 class="text-white font-semibold mt-1">Dia da Memória Trans</h4>
-                                    <p class="text-gray-300 text-sm">Criado para homenagear Rita Hester e todas as vítimas de transfobia (20 de novembro).</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#5BCEFA] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#5BCEFA] font-bold text-base">1999</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">Dia da Memória Trans (TDOR)</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Criado em memória de Rita Hester e todas as vítimas fatais da transfobia global (20 de novembro).</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 2004 -->
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#F5A9B8] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#F5A9B8] font-bold text-base">2004</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">🇧🇷 Dia da Visibilidade Trans no Brasil</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Lançamento histórico da campanha "Travesti e Respeito" no Congresso Nacional (29 de janeiro).</p>
                                 </div>
                             </div>
                             
                             <!-- 2008 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#F5A9B8] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#F5A9B8] font-bold text-lg">2008</span>
-                                    <h4 class="text-white font-semibold mt-1">🇧🇷 Processo Transexualizador no SUS</h4>
-                                    <p class="text-gray-300 text-sm">Brasil passa a oferecer procedimentos de afirmação de gênero pelo sistema público de saúde.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#9C59D1]"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-white font-bold text-base">2008</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">🇧🇷 Processo Transexualizador no SUS</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">O Ministério da Saúde do Brasil passa a regulamentar e oferecer cirurgias e hormonoterapia pelo sistema público.</p>
                                 </div>
                             </div>
                             
                             <!-- 2014 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-white rounded-full border-2 border-[#5BCEFA]"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-white font-bold text-lg">2014</span>
-                                    <h4 class="text-white font-semibold mt-1">Laverne Cox na capa da TIME</h4>
-                                    <p class="text-gray-300 text-sm">Primeira mulher trans na capa da revista, marcando o "Transgender Tipping Point".</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#5BCEFA] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#5BCEFA] font-bold text-base">2014</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">Laverne Cox na capa da TIME</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">Estrela na prestigiada revista marcando o movimento de transição de direitos ("Transgender Tipping Point").</p>
                                 </div>
                             </div>
                             
                             <!-- 2019 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#5BCEFA] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#5BCEFA] font-bold text-lg">2019</span>
-                                    <h4 class="text-white font-semibold mt-1">OMS remove transexualidade de doenças</h4>
-                                    <p class="text-gray-300 text-sm">A transexualidade deixa de ser classificada como transtorno mental pela OMS.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-[#F5A9B8] border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-[#F5A9B8] font-bold text-base">2019</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">OMS retira transexualidade do rol de doenças</h4>
+                                    <p class="text-gray-400 text-[11px] leading-relaxed mt-1">A OMS remove oficialmente a incongruência de gênero do capítulo de transtornos mentais.</p>
                                 </div>
                             </div>
                             
                             <!-- 2020 -->
-                            <div class="relative">
-                                <div class="absolute -left-8 w-4 h-4 bg-[#F5A9B8] rounded-full border-2 border-white"></div>
-                                <div class="bg-white/10 rounded-xl p-4">
-                                    <span class="text-[#F5A9B8] font-bold text-lg">2020</span>
-                                    <h4 class="text-white font-semibold mt-1">🇧🇷 Erika Hilton eleita</h4>
-                                    <p class="text-gray-300 text-sm">Erika se torna a vereadora mais votada de São Paulo e posteriormente deputada federal.</p>
+                            <div class="timeline-item relative pl-10">
+                                <div class="timeline-dot absolute left-2.5 top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-slate-950"></div>
+                                <div class="bg-white/5 rounded-2xl p-4 border border-white/5">
+                                    <span class="text-white font-bold text-base">2020</span>
+                                    <h4 class="text-white font-semibold text-xs mt-0.5">🇧🇷 Recorde de Candidaturas Trans Eleitas</h4>
+                                    <p class="text-gray-400 text-sm leading-relaxed mt-1">Avanço na representatividade política nas eleições legislativas municipais brasileiras.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Section 5: Lugares pelo Mundo -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
+
+            <!-- SECTION 5: Lugares pelo Mundo -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
                 <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">🌍</span>
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(91,206,250,0.5)]">🌍</span>
                         <div>
                             <h2 class="text-xl md:text-2xl font-bold text-white">Marcos pelo Mundo</h2>
-                            <p class="text-sm text-gray-300">Lugares históricos do movimento</p>
+                            <p class="text-xs md:text-sm text-gray-400">Locais geográficos históricos para a comunidade trans</p>
                         </div>
                     </div>
                     <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
-                <div class="accordion-content px-4 pb-6">
-                    <div class="grid gap-4">
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-2 gap-4 pt-4">
                         
                         <!-- Stonewall Inn -->
-                        <div class="bg-gradient-to-r from-[#5BCEFA]/20 to-[#F5A9B8]/20 rounded-xl p-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-4xl">🗽</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">Stonewall Inn</h4>
-                                    <p class="text-[#5BCEFA] text-sm mb-2">📍 Nova York, EUA</p>
-                                    <p class="text-gray-300 text-sm">O bar onde começou a Revolta de Stonewall em 1969. Hoje é Monumento Nacional e símbolo mundial do orgulho LGBTQIA+.</p>
-                                </div>
+                        <div class="card-hover-wrapper bg-[#5BCEFA]/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">🗽</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Stonewall Inn</h4>
+                                <p class="text-[10px] text-[#5BCEFA] mb-1">📍 Nova York, EUA</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">O bar icônico onde se deu a histórica rebelião de 1969. Atualmente reconhecido como Monumento Nacional norte-americano.</p>
                             </div>
                         </div>
                         
                         <!-- Compton's Cafeteria -->
-                        <div class="bg-gradient-to-r from-[#F5A9B8]/20 to-white/20 rounded-xl p-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-4xl">☕</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">Compton's Cafeteria</h4>
-                                    <p class="text-[#F5A9B8] text-sm mb-2">📍 São Francisco, EUA</p>
-                                    <p class="text-gray-300 text-sm">Local da revolta de 1966, três anos antes de Stonewall. Mulheres trans e drag queens enfrentaram a opressão policial.</p>
-                                </div>
+                        <div class="card-hover-wrapper bg-[#F5A9B8]/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">☕</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Compton's Cafeteria</h4>
+                                <p class="text-[10px] text-[#F5A9B8] mb-1">📍 São Francisco, EUA</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">Local do confronto organizado em 1966 por travestis, mulheres trans e drag queens contra assédio policial.</p>
                             </div>
                         </div>
                         
                         <!-- Avenida Paulista -->
-                        <div class="bg-gradient-to-r from-green-500/20 to-yellow-500/20 rounded-xl p-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-4xl">🇧🇷</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">Avenida Paulista</h4>
-                                    <p class="text-green-400 text-sm mb-2">📍 São Paulo, Brasil</p>
-                                    <p class="text-gray-300 text-sm">Palco da maior Parada do Orgulho LGBT do mundo, reunindo milhões de pessoas anualmente desde 1997.</p>
-                                </div>
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">🇧🇷</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Avenida Paulista</h4>
+                                <p class="text-[10px] text-green-400 mb-1">📍 São Paulo, Brasil</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">Coração de São Paulo e palco que acolhe a maior Parada do Orgulho LGBT do planeta, mobilizando milhões anualmente.</p>
                             </div>
                         </div>
                         
                         <!-- Berlim -->
-                        <div class="bg-gradient-to-r from-yellow-500/20 to-red-500/20 rounded-xl p-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-4xl">🇩🇪</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">Instituto de Ciência Sexual</h4>
-                                    <p class="text-yellow-400 text-sm mb-2">📍 Berlim, Alemanha</p>
-                                    <p class="text-gray-300 text-sm">Fundado por Magnus Hirschfeld em 1919, foi o primeiro centro de pesquisa sobre diversidade de gênero e sexualidade.</p>
-                                </div>
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">🇩🇪</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Instituto Hirschfeld</h4>
+                                <p class="text-[10px] text-yellow-400 mb-1">📍 Berlim, Alemanha</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">Instalações do Instituto de Ciências Sexuais (1919), importante centro europeu destruído sob repressão nazista.</p>
                             </div>
                         </div>
                         
                         <!-- Amsterdam -->
-                        <div class="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-4xl">🇳🇱</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">Homomonument</h4>
-                                    <p class="text-orange-400 text-sm mb-2">📍 Amsterdã, Holanda</p>
-                                    <p class="text-gray-300 text-sm">Primeiro memorial do mundo dedicado às pessoas LGBTQIA+ perseguidas, inaugurado em 1987.</p>
-                                </div>
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">🇳🇱</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Homomonument</h4>
+                                <p class="text-[10px] text-orange-400 mb-1">📍 Amsterdã, Holanda</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">Memorial pioneiro mundial concebido para homenagear todos os indivíduos LGBTQIA+ que sofreram perseguição e violência.</p>
                             </div>
                         </div>
                         
                         <!-- Argentina -->
-                        <div class="bg-gradient-to-r from-sky-400/20 to-white/20 rounded-xl p-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-4xl">🇦🇷</span>
-                                <div>
-                                    <h4 class="text-white font-bold text-lg">Buenos Aires</h4>
-                                    <p class="text-sky-400 text-sm mb-2">📍 Argentina</p>
-                                    <p class="text-gray-300 text-sm">Em 2012, a Argentina se tornou o primeiro país da América Latina a aprovar a Lei de Identidade de Gênero.</p>
-                                </div>
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">🇦🇷</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Buenos Aires</h4>
+                                <p class="text-[10px] text-sky-400 mb-1">📍 Argentina</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">Capital do primeiro país latino-americano a validar a Lei de Identidade de Gênero, permitindo reclassificação de registro civil de forma livre.</p>
                             </div>
                         </div>
                         
                         <!-- Tailândia -->
-                        <div class="bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-xl p-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-4xl">🇹🇭</span>
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">🇹🇭</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Bangkok</h4>
+                                <p class="text-[10px] text-pink-400 mb-1">📍 Tailândia</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">Metrópole globalmente afamada por acolher e integrar culturalmente identidades Kathoey, além de ser polo em cirurgias de afirmação de gênero.</p>
+                            </div>
+                        </div>
+
+                        <!-- Castro District -->
+                        <div class="card-hover-wrapper bg-white/5 rounded-2xl p-4 flex gap-4">
+                            <span class="text-3xl">🏳️‍🌈</span>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Castro District</h4>
+                                <p class="text-[10px] text-[#9C59D1] mb-1">📍 São Francisco, EUA</p>
+                                <p class="text-gray-400 text-xs leading-relaxed">Bairro histórico pioneiro de ativismo, lar da resistência de Harvey Milk e refúgio cultural queer mundial.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 6: Organizações de Apoio -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(245,169,184,0.5)]">💜</span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Organizações de Apoio</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Redes de suporte, informação e amparo social</p>
+                        </div>
+                    </div>
+                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-2 gap-4 pt-4">
+                        
+                        <a href="https://www.facebook.com/MaespelaDiversidade/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">👩‍👧‍👦</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">Mães pela Diversidade</span>
+                                <span class="text-[10px] text-gray-400">Coletivo nacional de apoio a famílias e indivíduos LGBTQIA+</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://allout.org/pt/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">🌍</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">All Out</span>
+                                <span class="text-[10px] text-gray-400">Campanhas e mobilizações mundiais contra LGBTfobia</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://todxs.org/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">🏳️‍🌈</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">TODXS</span>
+                                <span class="text-[10px] text-gray-400">Tecnologia, advocacia e projetos de inclusão social e jurídica</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.grupodignidade.org.br/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">💪</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">Grupo Dignidade</span>
+                                <span class="text-[10px] text-gray-400">Primeira ONG a defender direitos LGBTs atuante no PR</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://esou.org/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">🤝</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">EternamenteSou (ESOU)</span>
+                                <span class="text-[10px] text-gray-400">Atendimento e projetos para idosos LGBTQIA+</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.casadamaite.com/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">🏠</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">Casa da Maitê</span>
+                                <span class="text-[10px] text-gray-400">Acolhimento e direcionamento profissional no Paraná</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.instagram.com/casaflorescer1/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">🌸</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">Casa Florescer</span>
+                                <span class="text-[10px] text-gray-400">Acolhimento de travestis e mulheres trans em SP</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.instagram.com/maesdaresistencia/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">✊</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">Mães da Resistência</span>
+                                <span class="text-[10px] text-gray-400">Coletivo nacional de mães em luta por afeto e direitos civis</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.somosdiversidade.com.br/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">🌈</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">Somos Diversidade</span>
+                                <span class="text-[10px] text-gray-400">Apoio a grupos vulneráveis através de educação e cultura</span>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 7: Emprego & Saúde -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">💼</span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Emprego & Saúde</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Redes de empregabilidade e cuidados médicos específicos</p>
+                        </div>
+                    </div>
+                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-2 gap-4 pt-4">
+                        
+                        <a href="https://www.transempregos.com.br/" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">💻</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">TransEmpregos</span>
+                                <span class="text-[10px] text-gray-400">Maior banco de vagas e currículos exclusivo para pessoas trans</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.gov.br/pt-br/servicos/habilitar-se-para-realizar-processo-transexualizador" target="_blank" 
+                           class="link-btn bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 text-white font-medium flex items-center gap-3">
+                            <span class="text-2xl">🏥</span>
+                            <div class="text-left">
+                                <span class="block text-sm font-bold">Processo Transexualizador</span>
+                                <span class="text-[10px] text-gray-400">Diretrizes oficiais para hormonoterapia e procedimentos no SUS</span>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 8: Vitórias Conquistadas -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(91,206,250,0.5)]">🏆</span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Vitórias Conquistadas</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Direitos validados e conquistas legais históricas</p>
+                        </div>
+                    </div>
+                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-3 gap-4 pt-4">
+                        
+                        <div class="bg-emerald-500/10 rounded-2xl p-5 border border-emerald-500/10">
+                            <span class="text-3xl mb-2 block">📝</span>
+                            <h4 class="font-bold text-white text-sm mb-1">Nome Social no Brasil</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Decreto federal de 2016 formalizou e autorizou a inserção e uso do nome social em cadastros de repartições federais.</p>
+                        </div>
+                        
+                        <div class="bg-emerald-500/10 rounded-2xl p-5 border border-emerald-500/10">
+                            <span class="text-3xl mb-2 block">⚖️</span>
+                            <h4 class="font-bold text-white text-sm mb-1">Retificação Desburocratizada</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Decisão do STF de 2018 isenta pessoas trans de cirurgias ou laudos para atualizar registros diretamente em cartórios.</p>
+                        </div>
+                        
+                        <div class="bg-emerald-500/10 rounded-2xl p-5 border border-emerald-500/10">
+                            <span class="text-3xl mb-2 block">🌎</span>
+                            <h4 class="font-bold text-white text-sm mb-1">Despatologização da OMS</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Em 2019, a OMS retificou a classificação internacional CID, desvinculando identidades trans de enfermidades psicológicas.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 9: Datas Comemorativas -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(245,169,184,0.5)]">📅</span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Datas Comemorativas</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Dias de celebração, reflexão, resistência e visibilidade</p>
+                        </div>
+                    </div>
+                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid gap-3 pt-4">
+                        
+                        <div class="bg-white/5 rounded-2xl p-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-[#5BCEFA] font-bold text-sm">29 de Janeiro</span>
+                                <p class="text-gray-300 text-xs mt-0.5">Dia Nacional da Visibilidade Trans 🇧🇷</p>
+                            </div>
+                            <span class="text-2xl filter drop-shadow-[0_0_5px_rgba(91,206,250,0.5)]">🏳️‍⚧️</span>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-2xl p-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-[#F5A9B8] font-bold text-sm">31 de Março</span>
+                                <p class="text-gray-300 text-xs mt-0.5">Dia Internacional da Visibilidade Trans</p>
+                            </div>
+                            <span class="text-2xl">🌍</span>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-2xl p-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-white font-bold text-sm">28 de Junho</span>
+                                <p class="text-gray-300 text-xs mt-0.5">Dia do Orgulho LGBTQIA+ (Alusivo a Stonewall)</p>
+                            </div>
+                            <span class="text-2xl">🏳️‍🌈</span>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-2xl p-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-purple-400 font-bold text-sm">20 de Novembro</span>
+                                <p class="text-gray-300 text-xs mt-0.5">Dia da Memória Trans (TDOR)</p>
+                            </div>
+                            <span class="text-2xl">🕯️</span>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-2xl p-4 flex justify-between items-center">
+                            <div>
+                                <span class="text-[#F5A9B8] font-bold text-sm">Novembro</span>
+                                <p class="text-gray-300 text-xs mt-0.5">Semana da Consciência Trans (Dias 13 a 19)</p>
+                            </div>
+                            <span class="text-2xl">💜</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 10: Depoimentos -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
+                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">💬</span>
+                        <div>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Depoimentos que Inspiram</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Vozes fundamentais, ativistas e suas reflexões</p>
+                        </div>
+                    </div>
+                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-2 gap-4 pt-4">
+                        
+                        <div class="bg-white/5 rounded-2xl p-5 flex flex-col justify-between">
+                            <p class="text-gray-300 italic text-xs leading-relaxed mb-4">
+                                "Ninguém me prometeu amanhã. Então eu vivo como se hoje fosse o último dia. E quando a polícia veio, eu estava lá, na frente."
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Marsha-P-Johnson.jpg" alt="Marsha P. Johnson" class="w-10 h-10 rounded-full object-cover">
                                 <div>
-                                    <h4 class="text-white font-bold text-lg">Bangkok</h4>
-                                    <p class="text-pink-400 text-sm mb-2">📍 Tailândia</p>
-                                    <p class="text-gray-300 text-sm">Conhecida pela cultura Kathoey e por ser referência mundial em procedimentos de afirmação de gênero.</p>
+                                    <h5 class="font-bold text-white text-xs">Marsha P. Johnson</h5>
+                                    <p class="text-[9px] text-[#F5A9B8]">Ativista Histórica</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-2xl p-5 flex flex-col justify-between">
+                            <p class="text-gray-300 italic text-xs leading-relaxed mb-4">
+                                "Eu sempre disse que eu poderia ser presa, que eu poderia morrer, mas eu vou lutar pelos direitos trans até o meu último suspiro."
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Sylvia%20Rivera.png" alt="Sylvia Rivera" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h5 class="font-bold text-white text-xs">Sylvia Rivera</h5>
+                                    <p class="text-[9px] text-[#5BCEFA]">Ativista Histórica</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/5 rounded-2xl p-5 flex flex-col justify-between">
+                            <p class="text-gray-300 italic text-xs leading-relaxed mb-4">
+                                "A espiritualidade e a identidade caminham juntas. Ser quem somos é honrar nossa essência divina. A ancestralidade nos guia."
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <img src="https://rbygxkbewzknvjjhxdvw.supabase.co/storage/v1/object/public/fotos-horiz/Xcard%20(6).png" alt="Alexia Melusine" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h5 class="font-bold text-white text-xs">Alexia Melusine</h5>
+                                    <p class="text-[9px] text-[#9C59D1]">Criadora de Conteúdo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/5 rounded-2xl p-5 flex flex-col justify-between">
+                            <p class="text-gray-300 italic text-xs leading-relaxed mb-4">
+                                "O orgulho para mim é resistir, é existir em um mundo que tenta nos apagar e mostrar todos os dias que somos reais, fortes e merecemos respeito e felicidade."
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Pabllo_Vittar_during_an_interview_in_April_2018_01.png" alt="Pabllo Vittar" class="w-10 h-10 rounded-full object-cover">
+                                <div>
+                                    <h5 class="font-bold text-white text-xs">Pabllo Vittar</h5>
+                                    <p class="text-[9px] text-[#F5A9B8]">Cantora e Ícone Pop</p>
                                 </div>
                             </div>
                         </div>
@@ -642,425 +1040,119 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Section 6: Vitórias e Datas Comemorativas -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
+
+            <!-- SECTION 11: Glossário de Termos -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
                 <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">🏆</span>
+                    <div class="flex items-center gap-4">
+                        <span class="text-3xl filter drop-shadow-[0_0_8px_rgba(91,206,250,0.5)]">📖</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-white">Vitórias & Datas</h2>
-                            <p class="text-sm text-gray-300">Conquistas e celebrações</p>
+                            <h2 class="text-xl md:text-2xl font-bold text-white">Glossário de Termos</h2>
+                            <p class="text-xs md:text-sm text-gray-400">Guia rápido de definições importantes</p>
                         </div>
                     </div>
                     <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
-                <div class="accordion-content px-4 pb-6">
-                    
-                    <!-- Datas Comemorativas -->
-                    <div class="mb-6">
-                        <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                            <span>📅</span> Datas Comemorativas
-                        </h3>
-                        <div class="grid gap-3">
-                            <div class="bg-gradient-to-r from-[#5BCEFA]/30 to-[#F5A9B8]/30 rounded-xl px-5 py-4">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <span class="text-white font-bold">29 de Janeiro</span>
-                                        <p class="text-gray-300 text-sm">Dia Nacional da Visibilidade Trans 🇧🇷</p>
-                                    </div>
-                                    <span class="text-3xl">🏳️‍⚧️</span>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-[#F5A9B8]/30 to-white/30 rounded-xl px-5 py-4">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <span class="text-white font-bold">31 de Março</span>
-                                        <p class="text-gray-300 text-sm">Dia Internacional da Visibilidade Trans</p>
-                                    </div>
-                                    <span class="text-3xl">🌍</span>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-white/30 to-[#5BCEFA]/30 rounded-xl px-5 py-4">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <span class="text-white font-bold">28 de Junho</span>
-                                        <p class="text-gray-300 text-sm">Dia do Orgulho LGBTQIA+ (Stonewall)</p>
-                                    </div>
-                                    <span class="text-3xl">🏳️‍🌈</span>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-xl px-5 py-4">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <span class="text-white font-bold">20 de Novembro</span>
-                                        <p class="text-gray-300 text-sm">Dia da Memória Trans (TDOR)</p>
-                                    </div>
-                                    <span class="text-3xl">🕯️</span>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-pink-500/30 to-purple-500/30 rounded-xl px-5 py-4">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <span class="text-white font-bold">Novembro</span>
-                                        <p class="text-gray-300 text-sm">Semana da Consciência Trans (13-19)</p>
-                                    </div>
-                                    <span class="text-3xl">💜</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Vitórias Conquistadas -->
-                    <div>
-                        <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
-                            <span>✊</span> Vitórias Conquistadas
-                        </h3>
-                        <div class="grid gap-3">
-                            
-                            <div class="bg-green-500/20 rounded-xl px-5 py-4">
-                                <div class="flex items-start gap-3">
-                                    <span class="text-2xl">✅</span>
-                                    <div>
-                                        <span class="text-white font-bold">Nome Social no Brasil</span>
-                                        <p class="text-gray-300 text-sm">Decreto de 2016 permite uso do nome social em órgãos federais.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-green-500/20 rounded-xl px-5 py-4">
-                                <div class="flex items-start gap-3">
-                                    <span class="text-2xl">✅</span>
-                                    <div>
-                                        <span class="text-white font-bold">Retificação de Documentos</span>
-                                        <p class="text-gray-300 text-sm">STF decide em 2018 que pessoas trans podem alterar nome e gênero sem cirurgia.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-green-500/20 rounded-xl px-5 py-4">
-                                <div class="flex items-start gap-3">
-                                    <span class="text-2xl">✅</span>
-                                    <div>
-                                        <span class="text-white font-bold">Despatologização pela OMS</span>
-                                        <p class="text-gray-300 text-sm">Em 2019, identidade trans deixa de ser classificada como doença mental.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-green-500/20 rounded-xl px-5 py-4">
-                                <div class="flex items-start gap-3">
-                                    <span class="text-2xl">✅</span>
-                                    <div>
-                                        <span class="text-white font-bold">Criminalização da Transfobia</span>
-                                        <p class="text-gray-300 text-sm">STF equipara transfobia ao crime de racismo em 2019.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-green-500/20 rounded-xl px-5 py-4">
-                                <div class="flex items-start gap-3">
-                                    <span class="text-2xl">✅</span>
-                                    <div>
-                                        <span class="text-white font-bold">Representatividade Política</span>
-                                        <p class="text-gray-300 text-sm">Pessoas trans eleitas em diversos países, incluindo parlamentares no Brasil.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-green-500/20 rounded-xl px-5 py-4">
-                                <div class="flex items-start gap-3">
-                                    <span class="text-2xl">✅</span>
-                                    <div>
-                                        <span class="text-white font-bold">Cotas em Empresas</span>
-                                        <p class="text-gray-300 text-sm">Crescimento de programas de inclusão e vagas afirmativas para pessoas trans.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-green-500/20 rounded-xl px-5 py-4">
-                                <div class="flex items-start gap-3">
-                                    <span class="text-2xl">✅</span>
-                                    <div>
-                                        <span class="text-white font-bold">Casamento Igualitário</span>
-                                        <p class="text-gray-300 text-sm">Mais de 30 países reconhecem o casamento entre pessoas do mesmo gênero.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Section 7: Filmes Clássicos -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
-                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">🎬</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-white">Filmes Clássicos</h2>
-                            <p class="text-sm text-gray-300">Cinema LGBT+ essencial</p>
-                        </div>
-                    </div>
-                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content px-4 pb-6">
-                    <div class="grid gap-4">
+                <div class="accordion-content px-6 pb-6">
+                    <div class="grid md:grid-cols-2 gap-4 pt-4">
                         
-                        <!-- Priscila Rainha do Deserto -->
-                        <div class="bg-white/10 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Priscila%20Rainha%20do%20Deserto.jpg" 
-                                 alt="Priscila Rainha do Deserto" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">Priscilla, a Rainha do Deserto</h4>
-                                <span class="text-[#5BCEFA] text-xs">1994 • Austrália</span>
-                                <p class="text-gray-300 text-sm mt-2">Duas drag queens e uma mulher trans atravessam o deserto australiano em um ônibus chamado Priscilla. Uma celebração colorida e emocionante da diversidade.</p>
-                            </div>
+                        <div class="bg-white/5 rounded-2xl p-4">
+                            <h4 class="font-bold text-[#5BCEFA] text-sm mb-1">Transgênero</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Indivíduo cuja identidade e gênero diferem do sexo registrado ao nascimento.</p>
                         </div>
                         
-                        <!-- Clube de Compras Dallas -->
-                        <div class="bg-white/10 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Clube%20de%20Compra%20Dallas.jpg" 
-                                 alt="Clube de Compras Dallas" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">Clube de Compras Dallas</h4>
-                                <span class="text-[#5BCEFA] text-xs">2013 • EUA</span>
-                                <p class="text-gray-300 text-sm mt-2">Baseado em história real. Um homem diagnosticado com AIDS se une a uma mulher trans (Jared Leto, Oscar) para contrabandear medicamentos. Tocante e poderoso.</p>
-                            </div>
+                        <div class="bg-white/5 rounded-2xl p-4">
+                            <h4 class="font-bold text-[#F5A9B8] text-sm mb-1">Não-Binário</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Termo guarda-chuva para identidades que não se delimitam às categorias homem ou mulher.</p>
                         </div>
                         
-                        <!-- Manhãs de Setembro -->
-                        <div class="bg-white/10 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Manh%C3%A3s%20de%20Setembro.jpg" 
-                                 alt="Manhãs de Setembro" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">Manhãs de Setembro</h4>
-                                <span class="text-[#F5A9B8] text-xs">2021 • Brasil 🇧🇷</span>
-                                <p class="text-gray-300 text-sm mt-2">Série brasileira premiada. Uma mulher trans (Liniker) reencontra o filho após anos. Uma história sensível sobre família, amor e aceitação.</p>
-                            </div>
+                        <div class="bg-white/5 rounded-2xl p-4">
+                            <h4 class="font-bold text-white text-sm mb-1">Travesti</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Identidade de gênero feminina política e historicamente cunhada na América Latina.</p>
                         </div>
                         
-                        <!-- The Danish Girl -->
-                        <div class="bg-white/10 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/The%20Danish%20Girl.jpg" 
-                                 alt="The Danish Girl" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">A Garota Dinamarquesa</h4>
-                                <span class="text-[#5BCEFA] text-xs">2015 • Reino Unido/EUA</span>
-                                <p class="text-gray-300 text-sm mt-2">A história de Lili Elbe, uma das primeiras pessoas a realizar cirurgia de redesignação de gênero. Um retrato delicado de coragem e amor.</p>
-                            </div>
+                        <div class="bg-white/5 rounded-2xl p-4">
+                            <h4 class="font-bold text-[#FCF434] text-sm mb-1">Crossdresser</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Indivíduos que usam roupas associadas ao gênero oposto sem necessariamente transicionar.</p>
                         </div>
                         
-                        <!-- The Skin I Live In -->
-                        <div class="bg-white/10 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/The%20Skin%20I%20Live%20In%20(A%20Pele%20Onde%20Eu%20Vivo).jpg" 
-                                 alt="A Pele Onde Eu Vivo" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">A Pele Que Habito</h4>
-                                <span class="text-[#5BCEFA] text-xs">2011 • Espanha</span>
-                                <p class="text-gray-300 text-sm mt-2">Thriller de Pedro Almodóvar. Um cirurgião plástico cria uma pele sintética enquanto guarda segredos sombrios. Provocativo e visualmente deslumbrante.</p>
-                            </div>
+                        <div class="bg-white/5 rounded-2xl p-4">
+                            <h4 class="font-bold text-[#5BCEFA] text-sm mb-1">Cisgênero</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Pessoa que se identifica com o mesmo gênero atribuído a ela em seu nascimento.</p>
                         </div>
                         
-                        <!-- Brokeback Mountain -->
-                        <div class="bg-white/10 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Brokeback%20Mountain.jpg" 
-                                 alt="Brokeback Mountain" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">O Segredo de Brokeback Mountain</h4>
-                                <span class="text-[#5BCEFA] text-xs">2005 • EUA</span>
-                                <p class="text-gray-300 text-sm mt-2">Dois cowboys vivem um amor proibido nas montanhas. Dirigido por Ang Lee, este filme marcou época e trouxe visibilidade LGBT+ a Hollywood.</p>
-                            </div>
+                        <div class="bg-white/5 rounded-2xl p-4">
+                            <h4 class="font-bold text-[#F5A9B8] text-sm mb-1">Transição</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">Período de alinhamento social (nome, roupas), jurídico (documentos) ou médico (hormônios, cirurgia).</p>
                         </div>
                         
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Section 8: Documentários -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
-                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">📹</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-white">Documentários</h2>
-                            <p class="text-sm text-gray-300">Histórias reais e inspiradoras</p>
-                        </div>
-                    </div>
-                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content px-4 pb-6">
-                    <div class="grid gap-4">
-                        
-                        <!-- Marsha P. Johnson -->
-                        <div class="bg-gradient-to-r from-[#5BCEFA]/20 to-[#F5A9B8]/20 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Marsha_p_johnson.webp" 
-                                 alt="The Death and Life of Marsha P. Johnson" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">A Morte e Vida de Marsha P. Johnson</h4>
-                                <span class="text-[#F5A9B8] text-xs">2017 • Netflix</span>
-                                <p class="text-gray-300 text-sm mt-2">Documentário investigativo sobre a morte misteriosa de Marsha P. Johnson, ícone de Stonewall. Explora seu legado e a luta pelos direitos trans.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Caitlyn Jenner -->
-                        <div class="bg-gradient-to-r from-[#F5A9B8]/20 to-white/20 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Caitlyn%20Jenner.webp" 
-                                 alt="I Am Cait" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">I Am Cait</h4>
-                                <span class="text-[#5BCEFA] text-xs">2015-2016 • E! Entertainment</span>
-                                <p class="text-gray-300 text-sm mt-2">Série documental que acompanha a transição de Caitlyn Jenner, ex-atleta olímpico. Mostra os desafios, alegrias e descobertas de sua jornada como mulher trans.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Buzz Bissinger -->
-                        <div class="bg-gradient-to-r from-white/20 to-[#5BCEFA]/20 rounded-xl overflow-hidden flex flex-col md:flex-row">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Buzz%20Bissinger.jpg" 
-                                 alt="Buzz Bissinger" class="w-full md:w-32 h-40 md:h-auto object-cover">
-                            <div class="p-4 flex-1">
-                                <h4 class="text-white font-bold">A Jornada de Buzz Bissinger</h4>
-                                <span class="text-[#F5A9B8] text-xs">Documentário</span>
-                                <p class="text-gray-300 text-sm mt-2">O jornalista vencedor do Pulitzer compartilha publicamente sua identidade de gênero fluida. Uma história de autodescoberta e coragem aos 60 anos.</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Section 9: Galeria -->
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl">
-                <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                    <div class="flex items-center gap-3">
-                        <span class="text-3xl">📸</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-white">Galeria</h2>
-                            <p class="text-sm text-gray-300">Celebrando o orgulho</p>
-                        </div>
-                    </div>
-                    <svg class="accordion-icon w-6 h-6 text-[#F5A9B8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content px-4 pb-6">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="rounded-xl overflow-hidden">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/BANDEIRA%20TRANS.webp" 
-                                 alt="Bandeira Trans" class="w-full h-32 md:h-48 object-cover hover:scale-110 transition-transform duration-300">
-                        </div>
-                        <div class="rounded-xl overflow-hidden">
-                            <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/Parada-LGBT-6.webp" 
-                                 alt="Parada LGBT" class="w-full h-32 md:h-48 object-cover hover:scale-110 transition-transform duration-300">
-                        </div>
                     </div>
                 </div>
             </div>
             
         </div>
-        
-        <!-- Creator Section -->
-        <section class="mt-10 bg-gradient-to-r from-[#5BCEFA]/20 via-[#F5A9B8]/20 to-white/20 backdrop-blur-lg rounded-2xl p-6 text-center shadow-xl">
-            <div class="mb-4">
-                <img src="https://rbygxkbewzknvjjhxdvw.supabase.co/storage/v1/object/public/fotos-horiz/vC%20(8).png" 
-                     alt="Alexia Melusine" class="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto border-4 border-[#F5A9B8] object-cover shadow-lg">
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Alexia Melusine</h3>
-            <p class="text-gray-300 mb-5">Criadora deste projeto 💖</p>
-            
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="https://www.instagram.com/alexiamelusine/" target="_blank" 
-                   class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-full transition-all flex items-center gap-2 min-h-[48px]">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    Instagram
-                </a>
-                
-                <a href="https://www.threads.com/@alexiamelusine/" target="_blank" 
-                   class="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white font-semibold py-3 px-6 rounded-full transition-all flex items-center gap-2 min-h-[48px]">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.187.408-2.302 1.332-3.14.857-.777 2.058-1.262 3.377-1.365 1.2-.094 2.313.07 3.311.428.022-.327.036-.663.042-1.006l.006-.39 2.116.038-.01.507c-.012.644-.04 1.27-.083 1.878 1.047.652 1.876 1.564 2.397 2.652.7 1.464.882 3.782-.94 5.567C17.088 22.993 14.827 23.98 12.186 24zm.284-9.127c-1.117.088-1.987.453-2.449.865-.404.363-.56.792-.53 1.163.033.388.282.794.732 1.086.548.357 1.314.535 2.153.498 1.088-.059 1.9-.44 2.415-1.133.382-.515.645-1.212.764-2.066-.984-.282-2.03-.427-3.085-.413z"/>
-                    </svg>
-                    Threads
-                </a>
-                
-                <a href="https://www.tiktok.com/@alexia.melusine/" target="_blank" 
-                   class="bg-gradient-to-r from-[#00f2ea] to-[#ff0050] hover:opacity-90 text-white font-semibold py-3 px-6 rounded-full transition-all flex items-center gap-2 min-h-[48px]">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                    </svg>
-                    TikTok
-                </a>
-            </div>
-        </section>
         
     </main>
-    
-    <!-- Footer -->
-    <footer class="mt-12 py-8 border-t border-white/10">
-        <div class="container mx-auto px-4 text-center">
-            <div class="trans-gradient-horizontal h-1 w-24 mx-auto rounded-full mb-4"></div>
-            <p class="text-gray-400 text-sm mb-2">
-                Feito com 💖 para a comunidade trans
+
+    <!-- Footer Area (Vibrant, Festive & Empowering) -->
+    <footer class="vibrant-footer py-12 mt-16">
+        <div class="max-w-4xl mx-auto px-4 text-center flex flex-col items-center gap-6">
+            <!-- Trans Flag Small Logo -->
+            <div class="flex items-center gap-3 animate-float">
+                <div class="w-10 h-10 trans-gradient rounded-full shadow-lg shadow-[#5BCEFA]/30 border-2 border-white/20"></div>
+                <span class="font-extrabold text-2xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-[#5BCEFA] via-[#F5A9B8] to-white">
+                    Trans Pride 2026
+                </span>
+            </div>
+            
+            <!-- Empowering Phrase -->
+            <p class="text-white font-bold text-lg md:text-xl max-w-2xl leading-relaxed filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                "Nossa existência é um ato de coragem. Celebrar o orgulho trans é festejar a liberdade de ser, amar e brilhar intensamente! 🏳️‍⚧️✨"
             </p>
-            <p class="text-gray-500 text-xs">
-                🏳️‍⚧️ Visibilidade Trans Importa 🏳️‍⚧️
+            
+            <p class="text-gray-400 text-xs max-w-md leading-relaxed">
+                Este site é um espaço dedicado à memória, informação e amparo da comunidade trans. 
+                Siga Alexia nas redes sociais e junte-se à visibilidade.
             </p>
+            
+            <!-- 5 Customized, Colorful Brand-Styled Social Links -->
+            <div class="footer-social-grid">
+                <a href="https://www.instagram.com/alexiamelusine/" target="_blank" 
+                   class="footer-social-btn social-btn-insta"
+                   onclick="showToast('Abrindo Instagram de Alexia Melusine...')">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.threads.net/@alexiamelusine" target="_blank" 
+                   class="footer-social-btn social-btn-threads"
+                   onclick="showToast('Abrindo Threads de Alexia Melusine...')">
+                    <i class="fa-brands fa-threads"></i>
+                </a>
+                <a href="https://www.tiktok.com/@alexiamelusine" target="_blank" 
+                   class="footer-social-btn social-btn-tiktok"
+                   onclick="showToast('Abrindo TikTok de Alexia Melusine...')">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.facebook.com/alexia.tsan.7/" target="_blank" 
+                   class="footer-social-btn social-btn-facebook"
+                   onclick="showToast('Abrindo Facebook de Alexia Melusine...')">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.kwai.com/@alexialuzdeferro" target="_blank" 
+                   class="footer-social-btn social-btn-kwai"
+                   onclick="showToast('Abrindo Kwai de Alexia Melusine...')">
+                    <span class="font-black text-lg">K</span>
+                </a>
+            </div>
+            
+            <div class="text-[10px] text-gray-500 mt-6 tracking-wide">
+                © 2026 Trans Pride • Criado localmente com 🏳️‍⚧️ e amor por <span class="text-[#F5A9B8] font-semibold">Alexia Melusine</span>.
+            </div>
         </div>
     </footer>
-    
-    <script>
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            const isOpen = content.classList.contains('open');
-            
-            // Toggle current accordion
-            button.classList.toggle('active');
-            content.classList.toggle('open');
-            
-            // Smooth scroll to section on mobile
-            if (!isOpen && window.innerWidth < 768) {
-                setTimeout(() => {
-                    button.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
-        }
-        
-        // Add touch feedback for mobile
-        document.querySelectorAll('.link-btn, .accordion-btn').forEach(btn => {
-            btn.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.98)';
-            });
-            btn.addEventListener('touchend', function() {
-                this.style.transform = 'scale(1)';
-            });
-        });
-        
-        // Animate cards on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.card-hover').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
-    
+
+    <!-- JavaScript script bundle link -->
+    <script src="script.js"></script>
 </body>
 </html>
