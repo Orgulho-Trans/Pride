@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/alexialuzdeferro/pombagira-revelada/refs/heads/main/Al%C3%AA%20(3).png" 
+  <img src="https://rbygxkbewzknvjjhxdvw.supabase.co/storage/v1/object/public/fotos-horiz/Xcard%20(6).png" 
        alt="Alexia Melusine" 
        width="180" 
        style="border-radius: 50%; 
