@@ -75,62 +75,19 @@
     <!-- Main Content Container -->
     <main class="container mx-auto px-4 py-12 max-w-4xl">
         
-        <!-- Featured Image Section (Color Reveal Hover Effect) -->
+        <!-- Featured Video Section (Bright & Festive Loop) -->
         <section class="mb-12 fade-in">
-            <div class="card-hover-wrapper rounded-3xl overflow-hidden shadow-2xl bg-black/40">
-                <img src="https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/PARADA%20GAY.webp" 
-                     alt="Parada do Orgulho LGBT" class="reveal-img w-full h-56 md:h-80 object-cover">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-[#5BCEFA]/35 hover:border-[#F5A9B8]/50 transition-all duration-500 bg-black/10 relative">
+                <video autoplay loop muted playsinline 
+                       class="w-full h-56 md:h-80 object-cover brightness-110 contrast-105 saturate-110">
+                    <source src="pride_video.mp4" type="video/mp4">
+                    <source src="https://luauvcxdhhyzpafvcqwu.supabase.co/storage/v1/object/public/pride/PRIDE%20(1).mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
             </div>
         </section>
 
-        <!-- SECTION: Criadora do Site (Alexia Melusine) Standalone Highlight -->
-        <section class="mb-12 fade-in creator-standalone rounded-3xl p-6 md:p-8 relative overflow-hidden">
-            <!-- Decorative gradient backgrounds -->
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-[#5BCEFA]/15 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-[#F5A9B8]/15 rounded-full blur-3xl pointer-events-none"></div>
-            
-            <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                <!-- 3D Photo Container -->
-                <div class="creator-3d-container flex-shrink-0">
-                    <div id="creatorCardWrapper" class="creator-photo-wrapper">
-                        <!-- Front of Card: Photo -->
-                        <div class="creator-photo-front">
-                            <img src="https://rbygxkbewzknvjjhxdvw.supabase.co/storage/v1/object/public/fotos-horiz/Xcard%20(6).png" 
-                                 alt="Alexia Melusine" class="w-full h-full object-cover object-center">
-                        </div>
-                        <!-- Back of Card: Pride Details -->
-                        <div class="creator-photo-back">
-                            <span class="text-3xl mb-2">🏳️‍⚧️</span>
-                            <h4 class="text-white font-bold text-sm tracking-wide">Alexia Melusine</h4>
-                            <p class="text-[#5BCEFA] text-[10px] uppercase font-semibold tracking-wider mt-1">Criadora & Ativista</p>
-                            <p class="text-gray-400 text-[9px] mt-2 leading-relaxed px-1">Clique para girar e espalhar orgulho!</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Profile details -->
-                <div class="flex-grow text-center md:text-left">
-                    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-3 justify-center md:justify-start">
-                        <span class="px-3 py-1 bg-gradient-to-r from-[#5BCEFA] to-[#F5A9B8] text-slate-950 rounded-full font-bold text-xs w-fit mx-auto md:mx-0 shadow-sm shadow-[#5BCEFA]/20">
-                            ✨ Criadora do Site
-                        </span>
-                        <span class="text-xs text-[#F5A9B8] font-medium tracking-wide">Libra • Brasil • Presente</span>
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
-                        Alexia Melusine
-                    </h3>
-                    <p class="text-gray-300 text-sm leading-relaxed mb-5 max-w-xl">
-                        Criadora de conteúdo focada na militância, visibilidade trans e espiritualidade. Alexia compartilha sua jornada individual 
-                        e atua ativamente na desmistificação e no ensino sobre arquétipos e entidades da Umbanda (Pombagiras), promovendo o empoderamento.
-                    </p>
-                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#5BCEFA]/30 transition-colors">Ativismo</span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#F5A9B8]/30 transition-colors">Espiritualidade</span>
-                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#9C59D1]/30 transition-colors">Cultura</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Accordion Main Wrapper -->
         <div class="space-y-6 fade-in">
@@ -477,10 +434,164 @@
                                 <span class="text-[9px] text-[#5BCEFA] inline-flex items-center gap-1"><i class="fas fa-book"></i> Wikipedia</span>
                             </div>
                         </a>
-                        
                     </div>
                 </div>
             </div>
+
+            <!-- SECTION: Criadora do Site (Alexia Melusine) Standalone Highlight -->
+            <section class="mb-12 fade-in creator-standalone rounded-3xl p-6 md:p-8 relative overflow-hidden">
+                <!-- Decorative gradient backgrounds -->
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-[#5BCEFA]/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-[#F5A9B8]/15 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                    <!-- Evolution Slideshow Container -->
+                    <div class="evolution-slideshow-container flex-shrink-0 relative">
+                        <!-- Film Camera/REC Overlay badge -->
+                        <div class="absolute top-3 left-3 z-30 px-2.5 py-1 bg-black/70 backdrop-blur-md rounded-full border border-red-500/30 flex items-center gap-1.5 pointer-events-none select-none">
+                            <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                            <span class="text-[9px] font-bold text-white uppercase tracking-widest font-mono">Minha Evolução • REC</span>
+                        </div>
+                        
+                        <!-- Colorizing Overlay -->
+                        <div class="evolution-color-overlay"></div>
+
+                        <!-- Slide Track -->
+                        <div class="evolution-slides-track w-full h-full relative">
+                            <!-- Slide 1 -->
+                            <div class="evolution-slide active">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/pombagira-revelada/refs/heads/main/Al%C3%AA%20(3).png" 
+                                     alt="Evolução Alexia 1" class="evolution-img">
+                                <div class="evolution-caption">tatuagem no braço</div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/pombagira-revelada/refs/heads/main/Al%C3%AA%20(4).png" 
+                                     alt="Evolução Alexia 2" class="evolution-img">
+                                <div class="evolution-caption">cabelo curto</div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/pombagira-revelada/refs/heads/main/Al%C3%AA%20(2).png" 
+                                     alt="Evolução Alexia 3" class="evolution-img">
+                            </div>
+                            <!-- Slide 4 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/pombagira-revelada/refs/heads/main/Al%C3%AA%20(5).png" 
+                                     alt="Evolução Alexia 4" class="evolution-img">
+                            </div>
+                            <!-- Slide 5 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_54_19.png" 
+                                     alt="Evolução Alexia 5" class="evolution-img">
+                            </div>
+                            <!-- Slide 6 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/pombagira-revelada/refs/heads/main/Al%C3%AA%20(8).png" 
+                                     alt="Evolução Alexia 6" class="evolution-img">
+                            </div>
+                            <!-- Slide 7 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/Al%C3%AA%20(2).png" 
+                                     alt="Evolução Alexia 7" class="evolution-img">
+                            </div>
+                            <!-- Slide 8 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/Al%C3%AA%20(3).png" 
+                                     alt="Evolução Alexia 8" class="evolution-img">
+                            </div>
+                            <!-- Slide 9 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_50_31.png" 
+                                     alt="Evolução Alexia 9" class="evolution-img">
+                            </div>
+                            <!-- Slide 10 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_54_19.png" 
+                                     alt="Evolução Alexia 10" class="evolution-img">
+                            </div>
+                            <!-- Slide 11 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_56_22.png" 
+                                     alt="Evolução Alexia 11" class="evolution-img">
+                            </div>
+                            <!-- Slide 12 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_57_28.png" 
+                                     alt="Evolução Alexia 12" class="evolution-img">
+                            </div>
+                            <!-- Slide 13 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2015_41_02.png" 
+                                     alt="Evolução Alexia 13" class="evolution-img">
+                            </div>
+                            <!-- Slide 14 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2017_49_49.png" 
+                                     alt="Evolução Alexia 14" class="evolution-img">
+                            </div>
+                            <!-- Slide 15 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_32_47.png" 
+                                     alt="Evolução Alexia 15" class="evolution-img">
+                            </div>
+                            <!-- Slide 16 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_34_32.png" 
+                                     alt="Evolução Alexia 16" class="evolution-img">
+                            </div>
+                            <!-- Slide 17 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_36_45.png" 
+                                     alt="Evolução Alexia 17" class="evolution-img">
+                            </div>
+                            <!-- Slide 18 -->
+                            <div class="evolution-slide">
+                                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2017_46_21.png" 
+                                     alt="Evolução Alexia 18" class="evolution-img">
+                            </div>
+                        </div>
+
+                        <!-- Slide Navigation Controls -->
+                        <button class="evolution-nav-btn prev-btn" aria-label="Slide anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="evolution-nav-btn next-btn" aria-label="Próximo slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Documentary Progress Bar -->
+                        <div class="evolution-progress-bar-container">
+                            <div class="evolution-progress-bar"></div>
+                        </div>
+
+                        <!-- Slide indicator dots -->
+                        <div class="evolution-dots-container"></div>
+                    </div>
+                    
+                    <!-- Profile details -->
+                    <div class="flex-grow text-center md:text-left">
+                        <div class="flex flex-col md:flex-row md:items-center gap-2 mb-3 justify-center md:justify-start">
+                            <span class="px-3 py-1 bg-gradient-to-r from-[#5BCEFA] to-[#F5A9B8] text-slate-950 rounded-full font-bold text-xs w-fit mx-auto md:mx-0 shadow-sm shadow-[#5BCEFA]/20">
+                                ✨ Criadora do Site
+                            </span>
+                            <span class="text-xs text-[#F5A9B8] font-medium tracking-wide">Libra • Brasil • Presente</span>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
+                            Alexia Melusine
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-5 max-w-xl">
+                            Criadora de conteúdo focada na militância, visibilidade trans e espiritualidade. Alexia compartilha sua jornada individual 
+                            e atua ativamente na desmistificação e no ensino sobre arquétipos e entidades da Umbanda (Pombagiras), promovendo o empoderamento.
+                        </p>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#5BCEFA]/30 transition-colors">Ativismo</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#F5A9B8]/30 transition-colors">Espiritualidade</span>
+                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-gray-300 text-xs shadow-sm hover:border-[#9C59D1]/30 transition-colors">Cultura</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- SECTION 4: Linha do Tempo -->
             <div class="glass-panel rounded-3xl overflow-hidden shadow-xl">
@@ -1142,12 +1253,14 @@
                 <a href="https://www.kwai.com/@alexialuzdeferro" target="_blank" 
                    class="footer-social-btn social-btn-kwai"
                    onclick="showToast('Abrindo Kwai de Alexia Melusine...')">
-                    <span class="font-black text-lg">K</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="inline-block align-middle">
+                        <path d="M18.315 12.264c2.33 0 4.218 1.88 4.218 4.2V19.8c0 2.32-1.888 4.2-4.218 4.2h-6.202a4.218 4.218 0 0 1-4.023-2.938l-3.676 1.833a2.04 2.04 0 0 1-2.731-.903 2.015 2.015 0 0 1-.216-.907v-5.94a2.03 2.03 0 0 1 2.035-2.024 2.044 2.044 0 0 1 .919.218l3.673 1.85a4.218 4.218 0 0 1 4.02-2.925zm-.062 2.162h-6.078c-1.153 0-2.09.921-2.108 2.065v3.247c0 1.148.925 2.081 2.073 2.1h6.113c1.153 0 2.09-.922 2.109-2.065v-3.247a2.104 2.104 0 0 0-2.074-2.1zM4.18 15.72a.554.554 0 0 0-.555.542v3.734a.556.556 0 0 0 .798.496l.01-.004 3.463-1.756V17.51l-3.467-1.73a.557.557 0 0 0-.249-.06zM9.28 0a5.667 5.667 0 0 1 4.98 2.965 4.921 4.921 0 0 1 3.36-1.317c2.714 0 4.913 2.177 4.913 4.863 0 2.686-2.2 4.863-4.912 4.863a4.921 4.921 0 0 1-3.996-2.034 5.651 5.651 0 0 1-4.345 2.034c-3.131 0-5.67-2.546-5.67-5.687C3.61 2.546 6.149 0 9.28 0Zm8.34 3.926c-1.441 0-2.61 1.157-2.61 2.585s1.169 2.585 2.61 2.585c1.443 0 2.612-1.157 2.612-2.585s-1.169-2.585-2.611-2.585zM9.28 2.287a3.395 3.395 0 0 0-3.39 3.4c0 1.877 1.518 3.4 3.39 3.4a3.395 3.395 0 0 0 3.39-3.4c0-1.878-1.518-3.4-3.39-3.4z"/>
+                    </svg>
                 </a>
             </div>
             
             <div class="text-[10px] text-gray-500 mt-6 tracking-wide">
-                © 2026 Trans Pride • Criado localmente com 🏳️‍⚧️ e amor por <span class="text-[#F5A9B8] font-semibold">Alexia Melusine</span>.
+                © 2026 Trans Pride • Desenvolvido com 🏳️‍⚧️ e amor por <span class="text-[#F5A9B8] font-semibold">Alexia Melusine</span>.
             </div>
         </div>
     </footer>

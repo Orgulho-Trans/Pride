@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize interactive canvas glitter effect
     initGlitterCanvas();
 
-    // Initialize creator photo actions (flip + apple popups)
-    initCreatorCardActions();
+    // Initialize evolution slideshow
+    initEvolutionSlideshow();
 });
 
 /* ==========================================================================
@@ -147,76 +147,150 @@ function createGlitterBurst(x, y, count = 20) {
 }
 
 /* ==========================================================================
-   3. Standalone Creator Profile Card Flip & Apple-Style Popup Text
+   3. Evolution Slideshow Logic (Interactive & Auto-playing)
    ========================================================================== */
 
-const prideWords = [
-    'Trans', 'LGBTQIA', 'Crossdresser', 
-    'Binários', 'Travestis', 'Transsexuais', 
-    'Transgender', 'Pride', 'Love is Love'
-];
+function initEvolutionSlideshow() {
+    const slideshow = document.querySelector('.evolution-slideshow-container');
+    if (!slideshow) return;
 
-// Aesthetic Apple-style text color array
-const popupColors = [
-    '#5BCEFA', '#F5A9B8', '#FFFFFF', '#9C59D1', 
-    '#FCF434', '#E40303', '#FF8C00', '#008026'
-];
+    const slides = slideshow.querySelectorAll('.evolution-slide');
+    const prevBtn = slideshow.querySelector('.prev-btn');
+    const nextBtn = slideshow.querySelector('.next-btn');
+    const progressBar = slideshow.querySelector('.evolution-progress-bar');
+    const dotsContainer = slideshow.querySelector('.evolution-dots-container');
 
-function initCreatorCardActions() {
-    const cardWrapper = document.getElementById('creatorCardWrapper');
-    if (!cardWrapper) return;
-    
-    cardWrapper.addEventListener('click', (e) => {
-        // Toggle the flip CSS class
-        cardWrapper.classList.toggle('flipped');
-        
-        // Spawn a burst of glitter particles right on the image coordinates
-        const rect = cardWrapper.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        createGlitterBurst(centerX, centerY, 35);
-        
-        // Spawn Apple-style screen popups
-        spawnApplePrideWords(centerX, centerY);
+    let currentIndex = 0;
+    let progressInterval = null;
+    const slideDuration = 4000; // 4 seconds per slide
+    const progressUpdateInterval = 50; // Update progress bar every 50ms
+    let progressTimeElapsed = 0;
+    let isHovered = false;
+
+    // Create dot indicators dynamically
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `evolution-dot ${index === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+        });
+        dotsContainer.appendChild(dot);
     });
-}
 
-function spawnApplePrideWords(startX, startY) {
-    // Spawn all 9 words spread out
-    prideWords.forEach((word, index) => {
-        setTimeout(() => {
-            const wordEl = document.createElement('div');
-            wordEl.className = 'floating-word';
-            wordEl.textContent = word;
-            
-            // Random direction calculations for screen drifting
-            const angle = Math.random() * Math.PI * 2;
-            const distance = Math.random() * 200 + 150; // Random offset distance
-            
-            // Random translation targets
-            const dx = Math.cos(angle) * distance;
-            const dy = Math.sin(angle) * distance - 80; // Add upward drift
-            const rotation = (Math.random() - 0.5) * 30; // Rotate slightly
-            
-            // Set styles dynamically
-            wordEl.style.left = startX + 'px';
-            wordEl.style.top = startY + 'px';
-            wordEl.style.color = popupColors[Math.floor(Math.random() * popupColors.length)];
-            wordEl.style.fontSize = (Math.random() * 10 + 20) + 'px'; // Random size between 20px and 30px
-            wordEl.style.setProperty('--dx', dx + 'px');
-            wordEl.style.setProperty('--dy', dy + 'px');
-            wordEl.style.setProperty('--rot', rotation + 'deg');
-            
-            document.body.appendChild(wordEl);
-            
-            // Auto clean up after animation finishes (2.2 seconds)
-            setTimeout(() => {
-                if (wordEl.parentNode) {
-                    document.body.removeChild(wordEl);
+    const dots = dotsContainer.querySelectorAll('.evolution-dot');
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            if (index === currentIndex) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+
+        // Reset progress bar animation
+        progressTimeElapsed = 0;
+        if (progressBar) progressBar.style.width = '0%';
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlides();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlides();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlides();
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        
+        // Start progress bar interval
+        progressInterval = setInterval(() => {
+            if (!isHovered) {
+                progressTimeElapsed += progressUpdateInterval;
+                const percentage = Math.min((progressTimeElapsed / slideDuration) * 100, 100);
+                if (progressBar) progressBar.style.width = `${percentage}%`;
+
+                if (progressTimeElapsed >= slideDuration) {
+                    nextSlide();
                 }
-            }, 2200);
-        }, index * 80); // Stagger spawning for clean flow
+            }
+        }, progressUpdateInterval);
+    }
+
+    function stopAutoplay() {
+        if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+        }
+    }
+
+    // Set up manual navigation listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevSlide();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextSlide();
+        });
+    }
+
+    // Pause autoplay on mouse hover
+    slideshow.addEventListener('mouseenter', () => {
+        isHovered = true;
     });
+
+    slideshow.addEventListener('mouseleave', () => {
+        isHovered = false;
+    });
+
+    // Handle touch gestures for swipe functionality on mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slideshow.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isHovered = true;
+    }, { passive: true });
+
+    slideshow.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        isHovered = false;
+        handleGesture();
+    }, { passive: true });
+
+    function handleGesture() {
+        const threshold = 50; // swipe minimum distance in pixels
+        if (touchStartX - touchEndX > threshold) {
+            nextSlide(); // Swipe left -> next slide
+        } else if (touchEndX - touchStartX > threshold) {
+            prevSlide(); // Swipe right -> prev slide
+        }
+    }
+
+    // Start everything
+    updateSlides();
+    startAutoplay();
 }
 
 /* ==========================================================================
