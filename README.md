@@ -21,7 +21,7 @@
 > Projeto criado com carinho por **Alexia Melusine** 💕  
 > Visite o site completo: [Orgulho Trans](https://orgulho-trans.github.io/Pride/) 🏳️‍⚧️
 
-![Bandeira Trans vibrante](https://raw.githubusercontent.com/alexialuzdeferro/orgulho-trans/refs/heads/main/BANDEIRA%20TRANS.webp)
+![Bandeira Trans vibrante](https://raw.githubusercontent.com/Orgulho-Trans/Pride/refs/heads/main/VIDA-PRIDE%20(8).png)
 
 ## ✨ Destaques do Projeto
 
