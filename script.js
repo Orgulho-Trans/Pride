@@ -19,6 +19,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize evolution slideshow
     initEvolutionSlideshow();
+
+    // Initialize hero cover slideshow
+    initHeroSlideshow();
+
+    // Click to Copy Email functionality
+    const copyEmailBtns = document.querySelectorAll('.copy-email-btn');
+    copyEmailBtns.forEach(btn => {
+        const emailToCopy = btn.getAttribute('data-email');
+        const tooltip = btn.querySelector('.copy-tooltip');
+        
+        btn.addEventListener('click', () => {
+            navigator.clipboard.writeText(emailToCopy).then(() => {
+                // Change tooltip text and style to success state
+                if (tooltip) {
+                    tooltip.textContent = 'E-mail Copiado!';
+                    tooltip.classList.add('copied');
+                }
+                
+                // Vibration feedback
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(30);
+                }
+                
+                // Reset tooltip after 2.5 seconds
+                setTimeout(() => {
+                    if (tooltip) {
+                        tooltip.textContent = 'Copiar e-mail';
+                        tooltip.classList.remove('copied');
+                    }
+                }, 2500);
+            }).catch(err => {
+                console.error('Falha ao copiar e-mail: ', err);
+            });
+        });
+    });
 });
 
 /* ==========================================================================
@@ -159,6 +194,14 @@ function initEvolutionSlideshow() {
     const nextBtn = slideshow.querySelector('.next-btn');
     const progressBar = slideshow.querySelector('.evolution-progress-bar');
     const dotsContainer = slideshow.querySelector('.evolution-dots-container');
+
+    // If there is no dots container or less than 2 slides, disable slideshow controls/autoplay
+    if (slides.length <= 1 || !dotsContainer) {
+        if (slides.length > 0) {
+            slides[0].classList.add('active');
+        }
+        return;
+    }
 
     let currentIndex = 0;
     let progressInterval = null;
@@ -320,4 +363,33 @@ function showToast(message) {
             }
         }, 400);
     }, 3500);
+}
+
+/* ==========================================================================
+   5. Hero Cover Slideshow (Autoplay)
+   ========================================================================== */
+
+function initHeroSlideshow() {
+    const container = document.querySelector('.hero-slideshow-container');
+    if (!container) return;
+
+    const slides = container.querySelectorAll('.hero-slide');
+    if (slides.length <= 1) return;
+
+    let currentIndex = 0;
+    const intervalTime = 5000; // Transition every 5 seconds
+
+    function nextSlide() {
+        // Remove active class from the current slide
+        slides[currentIndex].classList.remove('active');
+        
+        // Move to the next slide
+        currentIndex = (currentIndex + 1) % slides.length;
+        
+        // Add active class to the new slide
+        slides[currentIndex].classList.add('active');
+    }
+
+    // Start autoplay interval
+    setInterval(nextSlide, intervalTime);
 }
